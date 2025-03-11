@@ -1,0 +1,33 @@
+<html>
+    <head>
+        <script src="https://randojs.com/1.0.0.js"></script>
+        <script>
+        function generateRandomCode() {
+            const letters = "ABCDEFGHKLMNPSTUVXYZ";
+            
+            let randomLetters = "";
+            for (let i = 0; i < 3; i++) {
+                const randomIndex = Math.floor(Math.random() * letters.length);
+                randomLetters += letters[randomIndex];
+            }
+
+            const randomNumbers = String(Math.floor(Math.random() * 10000)).padStart(4, '0');
+
+            const randomCode = randomLetters + randomNumbers;
+
+            document.getElementById("myNumber").innerHTML = randomCode;
+        }
+        </script>
+        <style>
+            #myNumber{
+                font-size:100px;
+                text-align:center;
+                margin:50px auto;
+                font-family:Roboto Mono, sans-serif;
+            }
+        </style>
+    </head>
+    <body onload="generateRandomCode();">
+        <div id="myNumber"></div>
+    </body>
+</html>
