@@ -129,3 +129,23 @@ function code_3l4n() {
 
     document.getElementById("myNumber").innerHTML = randomCode;
 }
+function vnCar(){
+    const TT = ["", "", "", "", "", "", "", "", "", "", "", "CBG", "LSN", "", "QNN", "HPG", "HPG", "THB", "NMD", "PTH", "TNN", "YBA", "TQG", "HGG", "LCA", "LCH", "SLA", "DBN", "HBN", "HAN", "HAN", "HAN", "HAN", "HAN", "HDG", "NBN", "THA", "NGN", "HTN", "DGN", "HAN", "HCM", "", "DNG", "", "", "", "DLK", "DKN", "LDG", "HCM", "HCM", "HCM", "HCM", "HCM", "HCM", "HCM", "HCM", "HCM", "HCM", "DGN", "BDG", "LGA", "TGG", "VLG", "CTH", "DGT", "AGG", "KGG", "CMU", "TNN", "BTR", "BVT", "QBN", "QTR", "TTH", "QNG", "BDN", "PHY", "KHA", "", "GLA", "KTM", "STR", "TRV", "NTH", "BTH", "", "VPH", "HGY", "HNM", "", "QNM", "BPC", "BCL", "HUG", "", "BKN", "BGG", "BNN"];
+
+    let DistrictID = 0;
+    while (TT[DistrictID]=""){
+        DistrictID = String(Math.floor(Math.random() * 100));
+    }
+    const letters = "ABCDEFGHKLMNPSTUVXYZ";
+    
+    let randomLetters = "";
+    
+    randomLetters += letters[randomIndex];
+    
+    const randomNumbers = String(Math.floor(Math.random() * 1000)).padStart(3, '0');
+    const randomNumbers2 = String(Math.floor(Math.random() * 100)).padStart(2, '0');
+
+    const randomCode = DistrictID + randomLetters + "-" + randomNumbers + "."+randomNumbers2;
+
+    document.getElementById("myNumber").innerHTML = randomCode;
+}
