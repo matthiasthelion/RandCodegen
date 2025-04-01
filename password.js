@@ -139,6 +139,7 @@ function vnCar(){
     const letters = "ABCDEFGHKLMNPSTUVXYZ";
     
     let randomLetters = "";
+    const randomIndex = Math.floor(Math.random() * ln.length);
     
     randomLetters += letters[randomIndex];
     
