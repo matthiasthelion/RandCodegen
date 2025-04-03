@@ -152,3 +152,30 @@ function vnCar(){
 
     document.getElementById("myNumber").innerHTML = randomCode;
 }
+function vnMotorbike(){
+    const TT = ["", "", "", "", "", "", "", "", "", "", "", "CBG", "LSN", "", "QNN", "HPG", "HPG", "THB", "NMD", "PTH", "TNN", "YBA", "TQG", "HGG", "LCA", "LCH", "SLA", "DBN", "HBN", "HAN", "HAN", "HAN", "HAN", "HAN", "HDG", "NBN", "THA", "NGN", "HTN", "DGN", "HAN", "HCM", "", "DNG", "", "", "", "DLK", "DKN", "LDG", "HCM", "HCM", "HCM", "HCM", "HCM", "HCM", "HCM", "HCM", "HCM", "HCM", "DGN", "BDG", "LGA", "TGG", "VLG", "CTH", "DGT", "AGG", "KGG", "CMU", "TNN", "BTR", "BVT", "QBN", "QTR", "TTH", "QNG", "BDN", "PHY", "KHA", "", "GLA", "KTM", "STR", "TRV", "NTH", "BTH", "", "VPH", "HGY", "HNM", "", "QNM", "BPC", "BCL", "HUG", "", "BKN", "BGG", "BNN"];
+
+    let ProvinceID = 0;
+    let ProvinceName = "";
+    do {
+        ProvinceID = Math.floor(Math.random() * 100);
+        ProvinceName = TT[ProvinceID];
+    } while (ProvinceName=="");
+    const letters = "ABCDEFGHKLMNPSTUVXYZ";
+    const ln = "ABCDEFGHKLMNPSTUVXYZ123456789";
+    
+    let randomLetters = "";
+    const randomIndex = Math.floor(Math.random() * letters.length);
+    
+    randomLetters += letters[randomIndex];
+    const randomIndex2 = Math.floor(Math.random() * ln.length);
+    
+    randomLetters += ln[randomIndex2];
+    
+    const randomNumbers = String(Math.floor(Math.random() * 1000)).padStart(3, '0');
+    const randomNumbers2 = String(Math.floor(Math.random() * 100)).padStart(2, '0');
+
+    const randomCode = ProvinceID + "-" + randomLetters + "/" + randomNumbers + "."+randomNumbers2;;
+
+    return randomCode;
+}
