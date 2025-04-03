@@ -177,5 +177,5 @@ function vnMotorbike(){
 
     const randomCode = ProvinceID + "-" + randomLetters + "/" + randomNumbers + "."+randomNumbers2;;
 
-    return randomCode;
+    document.getElementById("myNumber").innerHTML = randomCode;
 }
