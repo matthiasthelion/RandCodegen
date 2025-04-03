@@ -175,7 +175,7 @@ function vnMotorbike(){
     const randomNumbers = String(Math.floor(Math.random() * 1000)).padStart(3, '0');
     const randomNumbers2 = String(Math.floor(Math.random() * 100)).padStart(2, '0');
 
-    const randomCode = ProvinceID + "-" + randomLetters + "/" + randomNumbers + "."+randomNumbers2;;
+    const randomCode = ProvinceID + "-" + randomLetters + "/" + randomNumbers + "."+randomNumbers2;
 
     document.getElementById("myNumber").innerHTML = randomCode;
 }
