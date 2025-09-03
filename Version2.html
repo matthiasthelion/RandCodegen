@@ -1,0 +1,53 @@
+<html>
+    <head>
+        <script src="password.js"></script>
+        <title>Random Code Generator</title>
+        <style>
+            #myNumber{
+                font-size:100px;
+                text-align:center;
+                margin:50px auto;
+                font-family:Roboto Mono, sans-serif;
+            }
+            #Subtitle{
+                font-size:85px;
+                text-align:center;
+                margin:50px auto;
+                font-family:Roboto Mono, sans-serif;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="myNumber"></div>
+        <div id="Subtitle"></div>
+    </body>
+    <script>
+        function genKey(structureArray, separator) {
+            var randomCode = '';
+            for (const a of structureArray){
+                if (randomCode != ''){
+                    randomCode += separator;
+                }
+                randomCode+= genblock(a[0], a[1]);
+            }
+
+            document.getElementById("myNumber").textContent = randomCode;
+        }
+        function genblock(charset, length){
+            let block3="";
+            for (i = 1; i<= length; i++){
+                const randomIndex = Math.floor(Math.random() * charset.length);
+                block3 += charset[randomIndex];
+            }
+            return block3;
+        }
+
+
+        const urlParams = new URLSearchParams(window.location.search);
+        const structure = urlParams.get('structure');
+        const spr = urlParams.get('separator');
+        //document.getElementById("Subtitle").textContent = structure;
+        const structureArray = JSON.parse(structure);
+        genKey(structureArray, spr)
+    </script>
+</html>
