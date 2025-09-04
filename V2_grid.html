@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Generate Codes</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body class="p-8">
+    <h2 class="text-2xl font-bold mb-4">Generate Codes</h2>
+
+    <table class="border-collapse border border-gray-300 w-full">
+        <tbody id="codes">
+        </tbody>
+    </table>
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const structure = urlParams.get('structure');
+        const spr = (urlParams.get('separator')?urlParams.get('separator'):'');
+        const height = (urlParams.get('gridheight')?urlParams.get('gridheight'):1);
+        const width = (urlParams.get('gridwidth')?urlParams.get('gridwidth'):1);
+        //document.getElementById("Subtitle").textContent = structure;
+        const structureArray = JSON.parse(structure);
+        function genKey(structureArray, separator) {
+            var randomCode = '';
+            for (const a of structureArray){
+                if (randomCode != ''){
+                    randomCode += separator;
+                }
+                randomCode+= genblock(a[0], a[1]);
+            }
+            return randomCode;
+        }
+        function genblock(charset, length){
+            let block3="";
+            for (i = 1; i<= length; i++){
+                const randomIndex = Math.floor(Math.random() * charset.length);
+                block3 += charset[randomIndex];
+            }
+            return block3;
+        }
+
+        async function getData() {
+            let framediv = ``
+            try {
+                for (var i = 0; i < height; i++){
+                    framediv = framediv + `<tr>`
+                    for (var j = 0; j < width; j++){
+                        framediv = framediv + `<td class="border border-gray-300 p-2 text-center">${genKey(structureArray, spr)}</td>`
+                    }
+                    framediv = framediv + `</tr>`
+                }
+                document.getElementById("codes").innerHTML = framediv;
+            } catch (error) {
+                console.error(error.message);
+            }
+        }
+
+        getData();
+        
+        genKey(structureArray, spr)
+    </script>
+
+    </body>
+</html>
