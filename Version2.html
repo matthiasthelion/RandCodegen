@@ -1,6 +1,5 @@
 <html>
     <head>
-        <script src="password.js"></script>
         <title>Random Code Generator</title>
         <style>
             #myNumber{
@@ -31,7 +30,7 @@
                 randomCode+= genblock(a[0], a[1]);
             }
 
-            document.getElementById("myNumber").textContent = randomCode;
+            document.getElementById("myNumber").innerHTML = randomCode;
         }
         function genblock(charset, length){
             let block3="";
@@ -45,9 +44,10 @@
 
         const urlParams = new URLSearchParams(window.location.search);
         const structure = urlParams.get('structure');
-        const spr = urlParams.get('separator');
+        const spr = (urlParams.get('separator')?urlParams.get('separator'):'');
         //document.getElementById("Subtitle").textContent = structure;
         const structureArray = JSON.parse(structure);
         genKey(structureArray, spr)
     </script>
+
 </html>
